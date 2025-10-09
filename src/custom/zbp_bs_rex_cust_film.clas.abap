@@ -1,0 +1,5 @@
+CLASS zbp_bs_rex_cust_film DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zbs_r_rexcustfilm.
+ENDCLASS.
+
+CLASS zbp_bs_rex_cust_film IMPLEMENTATION.
+ENDCLASS.

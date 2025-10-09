@@ -1,0 +1,223 @@
+managed implementation in class ZBS_BP_R_REXDEEPCOMPANY unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZBS_R_REXDEEPCOMPANY alias REXDeepCompany
+persistent table ZBS_RXDEPCOMPANY
+extensible
+draft table ZBS_RXDPCMPANY_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZBS_RXDEPCOMPANY corresponding extensible
+  {
+    UUID = uuid;
+    RegistrationNumber = registration_number;
+    CompanyName = company_name;
+    Status = status;
+    FoundedAt = founded_at;
+    Location = location;
+    LocalCreatedBy = local_created_by;
+    LocalCreatedAt = local_created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+
+  association _REXDeepEmployee { create; with draft; }
+  association _REXDeepVehicle { create; with draft; }
+  association _REXDeepInvestment { create; with draft; }
+
+}
+
+define behavior for ZBS_R_REXDEEPEMPLOYEE alias REXDeepEmployee
+persistent table ZBS_RXDPEMPLOYEE
+extensible
+draft table ZBS_RXDPMPLYEE_D
+etag dependent by _REXDeepCompany
+lock dependent by _REXDeepCompany
+authorization dependent by _REXDeepCompany
+{
+  field ( readonly )
+   UUID,
+   ParentUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZBS_RXDPEMPLOYEE corresponding extensible
+  {
+    UUID = uuid;
+    ParentUUID = parent_uuid;
+    FirstName = first_name;
+    LastName = last_name;
+    Salary = salary;
+    Currency = currency;
+    EmployedSince = employed_since;
+  }
+
+  association _REXDeepCompany { with draft; }
+  association _REXDeepDocument { create; with draft; }
+
+}
+
+define behavior for ZBS_R_REXDEEPDOCUMENT alias REXDeepDocument
+persistent table ZBS_RXDPDOCUMENT
+extensible
+draft table ZBS_RXDPDCMENT_D
+etag dependent by _REXDeepCompany
+lock dependent by _REXDeepCompany
+authorization dependent by _REXDeepCompany
+{
+  field ( readonly )
+   UUID,
+   ParentUUID,
+   RootUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZBS_RXDPDOCUMENT corresponding extensible
+  {
+    UUID = uuid;
+    ParentUUID = parent_uuid;
+    RootUUID = root_uuid;
+    Name = name;
+    Content = content;
+  }
+
+  association _REXDeepCompany { with draft; }
+  association _REXDeepEmployee { with draft; }
+
+}
+
+define behavior for ZBS_R_REXDEEPVEHICLE alias REXDeepVehicle
+persistent table ZBS_RXDEPVEHICLE
+extensible
+draft table ZBS_RXDPVHICLE_D
+etag dependent by _REXDeepCompany
+lock dependent by _REXDeepCompany
+authorization dependent by _REXDeepCompany
+{
+  field ( readonly )
+   UUID,
+   ParentUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZBS_RXDEPVEHICLE corresponding extensible
+  {
+    UUID = uuid;
+    ParentUUID = parent_uuid;
+    PlateNumber = plate_number;
+    VehicleType = vehicle_type;
+    Brand = brand;
+  }
+
+  association _REXDeepCompany { with draft; }
+  association _REXDeepEquipment { create; with draft; }
+
+}
+
+define behavior for ZBS_R_REXDEEPEQUIPMENT alias REXDeepEquipment
+persistent table ZBS_RXDPQUIPMENT
+extensible
+draft table ZBS_RXDPQPMENT_D
+etag dependent by _REXDeepCompany
+lock dependent by _REXDeepCompany
+authorization dependent by _REXDeepCompany
+{
+  field ( readonly )
+   UUID,
+   ParentUUID,
+   RootUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZBS_RXDPQUIPMENT corresponding extensible
+  {
+    UUID = uuid;
+    ParentUUID = parent_uuid;
+    RootUUID = root_uuid;
+    PartNmae = part_nmae;
+    NumberOfParts = number_of_parts;
+  }
+
+  association _REXDeepCompany { with draft; }
+  association _REXDeepVehicle { with draft; }
+
+}
+
+define behavior for ZBS_R_REXDEEPINVESTMENT alias REXDeepInvestment
+persistent table ZBS_RXDPNVSTMENT
+extensible
+draft table ZBS_RXDPNVSTMN_D
+etag dependent by _REXDeepCompany
+lock dependent by _REXDeepCompany
+authorization dependent by _REXDeepCompany
+{
+  field ( readonly )
+   UUID,
+   ParentUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZBS_RXDPNVSTMENT corresponding extensible
+  {
+    UUID = uuid;
+    ParentUUID = parent_uuid;
+    InvestmentDate = investment_date;
+    Condition000 = condition000;
+    InvestmentValue = investment_value;
+    InvestmentCurrency = investment_currency;
+  }
+
+  association _REXDeepCompany { with draft; }
+
+}

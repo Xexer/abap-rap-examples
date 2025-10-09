@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBS_R_REXDEEPINVESTMENT'
+@MappingRole: true
+define role ZBS_R_REXDEEPINVESTMENT {
+  grant select on ZBS_R_REXDEEPINVESTMENT
+  where TRUE;
+}

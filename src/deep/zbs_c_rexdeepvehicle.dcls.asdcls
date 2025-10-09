@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBS_C_REXDEEPVEHICLE'
+@MappingRole: true
+define role ZBS_C_REXDEEPVEHICLE {
+  grant select on ZBS_C_REXDEEPVEHICLE
+  where INHERITING CONDITIONS FROM ENTITY ZBS_R_REXDEEPVEHICLE REPLACING { ROOT WITH _BaseEntity };
+}

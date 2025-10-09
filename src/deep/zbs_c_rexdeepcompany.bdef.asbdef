@@ -1,0 +1,83 @@
+projection implementation in class ZBS_BP_C_REXDEEPCOMPANY unique;
+strict ( 2 );
+extensible;
+use draft;
+use side effects;
+define behavior for ZBS_C_REXDEEPCOMPANY alias REXDeepCompany
+extensible
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _REXDeepEmployee { create; with draft; }
+  use association _REXDeepVehicle { create; with draft; }
+  use association _REXDeepInvestment { create; with draft; }
+
+}
+
+define behavior for ZBS_C_REXDEEPEMPLOYEE alias REXDeepEmployee
+extensible
+use etag
+{
+  use update;
+  use delete;
+
+  use association _REXDeepCompany { with draft; }
+  use association _REXDeepDocument { create; with draft; }
+
+}
+
+define behavior for ZBS_C_REXDEEPDOCUMENT alias REXDeepDocument
+extensible
+use etag
+{
+  use update;
+  use delete;
+
+  use association _REXDeepCompany { with draft; }
+  use association _REXDeepEmployee { with draft; }
+
+}
+
+define behavior for ZBS_C_REXDEEPVEHICLE alias REXDeepVehicle
+extensible
+use etag
+{
+  use update;
+  use delete;
+
+  use association _REXDeepCompany { with draft; }
+  use association _REXDeepEquipment { create; with draft; }
+
+}
+
+define behavior for ZBS_C_REXDEEPEQUIPMENT alias REXDeepEquipment
+extensible
+use etag
+{
+  use update;
+  use delete;
+
+  use association _REXDeepCompany { with draft; }
+  use association _REXDeepVehicle { with draft; }
+
+}
+
+define behavior for ZBS_C_REXDEEPINVESTMENT alias REXDeepInvestment
+extensible
+use etag
+{
+  use update;
+  use delete;
+
+  use association _REXDeepCompany { with draft; }
+
+}

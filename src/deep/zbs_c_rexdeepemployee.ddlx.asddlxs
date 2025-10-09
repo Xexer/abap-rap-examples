@@ -1,0 +1,120 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'UUID'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'UUID'
+annotate view ZBS_C_REXDEEPEMPLOYEE with
+{
+  @EndUserText.label: 'UUID'
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  }, 
+  {
+    label: 'REXDeepDocument Items', 
+    id: 'REXDeepDocumentItems', 
+    purpose: #STANDARD, 
+    position: 11 , 
+    type: #LINEITEM_REFERENCE, 
+    targetElement: '_REXDeepDocument'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  UUID;
+  
+  @EndUserText.label: 'ParentUUID'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'ParentUUID'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'ParentUUID'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  ParentUUID;
+  
+  @EndUserText.label: 'FirstName'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'FirstName'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'FirstName'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  FirstName;
+  
+  @EndUserText.label: 'LastName'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'LastName'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'LastName'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  LastName;
+  
+  @EndUserText.label: 'Salary'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Salary'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'Salary'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  Salary;
+  
+  @EndUserText.label: 'EmployedSince'
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'EmployedSince'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'EmployedSince'
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  EmployedSince;
+  
+  @EndUserText.label: '_BaseEntity'
+  @UI.identification: [ {
+    position: 90 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.lineItem: [ {
+    position: 90 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  _BaseEntity;
+}

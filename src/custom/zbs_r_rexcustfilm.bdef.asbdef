@@ -1,0 +1,50 @@
+unmanaged implementation in class zbp_bs_rex_cust_film unique;
+strict ( 2 );
+
+define behavior for ZBS_R_REXCustFilm alias Film
+lock master
+authorization master ( instance )
+{
+//  create ( authorization : global );
+//  update;
+//  delete;
+
+  field ( readonly ) FilmID;
+  association _Actor { create; }
+  association _Location { create; }
+}
+
+define behavior for ZBS_I_REXCustActor alias Actor
+lock dependent by _Film
+authorization dependent by _Film
+{
+//  update;
+//  delete;
+
+  field ( readonly ) FilmID, ActorID;
+  association _Film;
+  association _Payment { create; }
+}
+
+define behavior for ZBS_I_REXCustPayment alias Payment
+lock dependent by _Film
+authorization dependent by _Film
+{
+//  update;
+//  delete;
+
+  field ( readonly ) FilmID, ActorID, PaymentID;
+  association _Film;
+  association _Actor;
+}
+
+define behavior for ZBS_I_REXCustLocation alias Location
+lock dependent by _Film
+authorization dependent by _Film
+{
+//  update;
+//  delete;
+
+  field ( readonly ) FilmID, Location;
+  association _Film;
+}

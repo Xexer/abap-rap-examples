@@ -1,0 +1,8 @@
+@EndUserText.label: 'Custom: Film'
+@ObjectModel.leadingEntity.name: 'ZBS_R_REXCustFilm'
+define service ZBS_REX_CUST_FILM {
+  expose ZBS_R_REXCustFilm     as Film;
+  expose ZBS_I_REXCustActor    as Actor;
+  expose ZBS_I_REXCustLocation as Location;
+  expose ZBS_I_REXCustPayment  as Payment;
+}

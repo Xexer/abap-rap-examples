@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBS_R_REXDEEPDOCUMENT'
+@MappingRole: true
+define role ZBS_R_REXDEEPDOCUMENT {
+  grant select on ZBS_R_REXDEEPDOCUMENT
+  where TRUE;
+}
