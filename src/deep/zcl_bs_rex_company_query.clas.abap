@@ -47,7 +47,7 @@ CLASS zcl_bs_rex_company_query IMPLEMENTATION.
                       city_name         = 'Dortmund'
                       country           = 'DE'
                       currency          = 'EUR' )
-                    ( company_code      = '1236'
+                    ( company_code      = '1237'
                       company_code_name = 'Golden Peach'
                       city_name         = 'New York'
                       country           = 'US'

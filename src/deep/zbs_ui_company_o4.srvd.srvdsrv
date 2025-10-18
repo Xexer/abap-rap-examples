@@ -14,5 +14,4 @@ define service ZBS_UI_COMPANY_O4
   expose ZBS_C_REXDEEPVEHICLE    as REXDeepVehicle;
   expose ZBS_C_REXDEEPEQUIPMENT  as REXDeepEquipment;
   expose ZBS_C_REXDEEPINVESTMENT as REXDeepInvestment;
-  expose ZBS_I_REXDeepCompanyVH;
 }

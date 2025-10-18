@@ -1,7 +1,7 @@
 @Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
 @EndUserText: {
-  label: '###GENERATED Core Data Service Entity'
+  label: 'Company Manager'
 }
 @ObjectModel: {
   sapObjectNodeType.name: 'ZBS_Company', 
@@ -15,7 +15,7 @@ define root view entity ZBS_C_REXDEEPCOMPANY
 {
   key UUID,
   RegistrationNumber,
-  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBS_I_REXDeepCompanyVH', element : 'company_code_name' } }]
+
   CompanyName,
   @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBS_I_REXDEEPSTATUSVH', element : 'Status' } }]
   Status,

@@ -1,6 +1,6 @@
 @Metadata.layer: #CORE
 @UI.headerInfo.title.type: #STANDARD
-@UI.headerInfo.title.value: 'RegistrationNumber'
+@UI.headerInfo.title.value: 'CompanyName'
 @UI.headerInfo.description.type: #STANDARD
 @UI.headerInfo.description.value: 'RegistrationNumber'
 annotate view ZBS_C_REXDEEPCOMPANY with
@@ -8,185 +8,136 @@ annotate view ZBS_C_REXDEEPCOMPANY with
   @UI.hidden: true
   @EndUserText.label: 'UUID'
   @UI.identification: [ {
-    position: 10 , 
+    position: 10 ,
     label: 'UUID'
   } ]
   @UI.lineItem: [ {
-    position: 10 , 
+    position: 10 ,
     label: 'UUID'
   } ]
   @UI.selectionField: [ {
-    position: 10 
+    position: 10
   } ]
   UUID;
-  
+
   @EndUserText.label: 'RegistrationNumber'
   @UI.facet: [ {
-    label: 'General Information', 
-    id: 'GeneralInfo', 
-    purpose: #STANDARD, 
-    position: 20 , 
+    label: 'General Information',
+    id: 'GeneralInfo',
+    purpose: #STANDARD,
+    position: 20 ,
     type: #IDENTIFICATION_REFERENCE
-  }, 
+  },
   {
-    label: 'REXDeepEmployee Items', 
-    id: 'REXDeepEmployeeItems', 
-    purpose: #STANDARD, 
-    position: 21 , 
-    type: #LINEITEM_REFERENCE, 
+    label: 'Employee',
+    id: 'REXDeepEmployeeItems',
+    purpose: #STANDARD,
+    position: 21 ,
+    type: #LINEITEM_REFERENCE,
     targetElement: '_REXDeepEmployee'
-  }, 
+  },
   {
-    label: 'REXDeepVehicle Items', 
-    id: 'REXDeepVehicleItems', 
-    purpose: #STANDARD, 
-    position: 22 , 
-    type: #LINEITEM_REFERENCE, 
+    label: 'Vehicle',
+    id: 'REXDeepVehicleItems',
+    purpose: #STANDARD,
+    position: 22 ,
+    type: #LINEITEM_REFERENCE,
     targetElement: '_REXDeepVehicle'
-  }, 
+  },
   {
-    label: 'REXDeepInvestment Items', 
-    id: 'REXDeepInvestmentItems', 
-    purpose: #STANDARD, 
-    position: 23 , 
-    type: #LINEITEM_REFERENCE, 
+    label: 'Investment',
+    id: 'REXDeepInvestmentItems',
+    purpose: #STANDARD,
+    position: 23 ,
+    type: #LINEITEM_REFERENCE,
     targetElement: '_REXDeepInvestment'
   } ]
   @UI.identification: [ {
-    position: 20 , 
+    position: 20 ,
     label: 'RegistrationNumber'
   } ]
   @UI.lineItem: [ {
-    position: 20 , 
+    position: 20 ,
     label: 'RegistrationNumber'
   } ]
   @UI.selectionField: [ {
-    position: 20 
+    position: 20
   } ]
   RegistrationNumber;
-  
+
   @EndUserText.label: 'CompanyName'
   @UI.identification: [ {
-    position: 30 , 
+    position: 30 ,
     label: 'CompanyName'
   } ]
   @UI.lineItem: [ {
-    position: 30 , 
+    position: 30 ,
     label: 'CompanyName'
   } ]
   @UI.selectionField: [ {
-    position: 30 
+    position: 30
   } ]
   CompanyName;
-  
+
   @EndUserText.label: 'Status'
   @UI.identification: [ {
-    position: 40 , 
+    position: 40 ,
     label: 'Status'
   } ]
   @UI.lineItem: [ {
-    position: 40 , 
+    position: 40 ,
     label: 'Status'
   } ]
   @UI.selectionField: [ {
-    position: 40 
+    position: 40
   } ]
   Status;
-  
+
   @EndUserText.label: 'FoundedAt'
   @UI.identification: [ {
-    position: 50 , 
+    position: 50 ,
     label: 'FoundedAt'
   } ]
   @UI.lineItem: [ {
-    position: 50 , 
+    position: 50 ,
     label: 'FoundedAt'
-  } ]
-  @UI.selectionField: [ {
-    position: 50 
   } ]
   FoundedAt;
-  
+
   @EndUserText.label: 'Location'
   @UI.identification: [ {
-    position: 60 , 
+    position: 60 ,
     label: 'Location'
   } ]
   @UI.lineItem: [ {
-    position: 60 , 
+    position: 60 ,
     label: 'Location'
-  } ]
-  @UI.selectionField: [ {
-    position: 60 
   } ]
   Location;
-  
-  @UI.identification: [ {
-    position: 70 
-  } ]
-  @UI.lineItem: [ {
-    position: 70 
-  } ]
-  @UI.selectionField: [ {
-    position: 70 
-  } ]
+
+  @UI.hidden: true
   LocalCreatedBy;
-  
-  @UI.identification: [ {
-    position: 80 
-  } ]
-  @UI.lineItem: [ {
-    position: 80 
-  } ]
-  @UI.selectionField: [ {
-    position: 80 
-  } ]
+
+  @UI.hidden: true
   LocalCreatedAt;
-  
-  @UI.identification: [ {
-    position: 90 
-  } ]
-  @UI.lineItem: [ {
-    position: 90 
-  } ]
-  @UI.selectionField: [ {
-    position: 90 
-  } ]
+
+  @UI.hidden: true
   LocalLastChangedBy;
-  
-  @UI.identification: [ {
-    position: 100 
-  } ]
-  @UI.lineItem: [ {
-    position: 100 
-  } ]
-  @UI.selectionField: [ {
-    position: 100 
-  } ]
+
+  @UI.hidden: true
   LocalLastChangedAt;
-  
-  @UI.identification: [ {
-    position: 110 
-  } ]
-  @UI.lineItem: [ {
-    position: 110 
-  } ]
-  @UI.selectionField: [ {
-    position: 110 
-  } ]
+
+  @UI.hidden: true
   LastChangedAt;
-  
+
   @EndUserText.label: '_BaseEntity'
   @UI.identification: [ {
-    position: 150 , 
+    position: 150 ,
     label: '_BaseEntity'
   } ]
   @UI.lineItem: [ {
-    position: 150 , 
+    position: 150 ,
     label: '_BaseEntity'
-  } ]
-  @UI.selectionField: [ {
-    position: 150 
   } ]
   _BaseEntity;
 }

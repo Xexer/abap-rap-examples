@@ -7,100 +7,103 @@ annotate view ZBS_C_REXDEEPVEHICLE with
 {
   @EndUserText.label: 'UUID'
   @UI.facet: [ {
-    label: 'General Information', 
-    id: 'GeneralInfo', 
-    purpose: #STANDARD, 
-    position: 10 , 
+    label: 'General Information',
+    id: 'GeneralInfo',
+    purpose: #STANDARD,
+    position: 10 ,
     type: #IDENTIFICATION_REFERENCE
-  }, 
+  },
   {
-    label: 'REXDeepEquipment Items', 
-    id: 'REXDeepEquipmentItems', 
-    purpose: #STANDARD, 
-    position: 11 , 
-    type: #LINEITEM_REFERENCE, 
+    label: 'REXDeepEquipment Items',
+    id: 'REXDeepEquipmentItems',
+    purpose: #STANDARD,
+    position: 11 ,
+    type: #LINEITEM_REFERENCE,
     targetElement: '_REXDeepEquipment'
   } ]
+
+  @UI.hidden: true
   @UI.identification: [ {
-    position: 10 , 
+    position: 10 ,
     label: 'UUID'
   } ]
   @UI.lineItem: [ {
-    position: 10 , 
+    position: 10 ,
     label: 'UUID'
   } ]
   @UI.selectionField: [ {
-    position: 10 
+    position: 10
   } ]
   UUID;
-  
+
+  @UI.hidden: true
   @EndUserText.label: 'ParentUUID'
   @UI.identification: [ {
-    position: 20 , 
+    position: 20 ,
     label: 'ParentUUID'
   } ]
   @UI.lineItem: [ {
-    position: 20 , 
+    position: 20 ,
     label: 'ParentUUID'
   } ]
   @UI.selectionField: [ {
-    position: 20 
+    position: 20
   } ]
   ParentUUID;
-  
+
   @EndUserText.label: 'PlateNumber'
   @UI.identification: [ {
-    position: 30 , 
+    position: 30 ,
     label: 'PlateNumber'
   } ]
   @UI.lineItem: [ {
-    position: 30 , 
+    position: 30 ,
     label: 'PlateNumber'
   } ]
   @UI.selectionField: [ {
-    position: 30 
+    position: 30
   } ]
   PlateNumber;
-  
+
   @EndUserText.label: 'VehicleType'
   @UI.identification: [ {
-    position: 40 , 
+    position: 40 ,
     label: 'VehicleType'
   } ]
   @UI.lineItem: [ {
-    position: 40 , 
+    position: 40 ,
     label: 'VehicleType'
   } ]
   @UI.selectionField: [ {
-    position: 40 
+    position: 40
   } ]
   VehicleType;
-  
+
   @EndUserText.label: 'Brand'
   @UI.identification: [ {
-    position: 50 , 
+    position: 50 ,
     label: 'Brand'
   } ]
   @UI.lineItem: [ {
-    position: 50 , 
+    position: 50 ,
     label: 'Brand'
   } ]
   @UI.selectionField: [ {
-    position: 50 
+    position: 50
   } ]
   Brand;
-  
+
   @EndUserText.label: '_BaseEntity'
   @UI.identification: [ {
-    position: 80 , 
+    position: 80 ,
     label: '_BaseEntity'
   } ]
   @UI.lineItem: [ {
-    position: 80 , 
+    position: 80 ,
     label: '_BaseEntity'
   } ]
   @UI.selectionField: [ {
-    position: 80 
+    position: 80
   } ]
   _BaseEntity;
 }
