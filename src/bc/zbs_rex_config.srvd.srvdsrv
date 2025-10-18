@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZBS_R_RexConfigS'
+define service ZBS_REX_CONFIG {
+  expose ZBS_R_REXCONFIGS as RexConfigAll;
+  expose ZBS_I_REXCONFIG as RexConfig;
+}

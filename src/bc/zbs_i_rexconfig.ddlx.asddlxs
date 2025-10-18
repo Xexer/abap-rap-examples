@@ -1,0 +1,55 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'RexConfig', 
+    typeNamePlural: 'RexConfigs', 
+    title: {
+      type: #STANDARD, 
+      label: 'REX Config', 
+      value: 'CharKey'
+    }
+  }
+}
+annotate view ZBS_I_RexConfig with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Copy', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZBS_I_RexConfig', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'REX Config', 
+    position: 1 
+  } ]
+  CharKey;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Description'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Description'
+  } ]
+  Description;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Counter'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Counter'
+  } ]
+  Counter;
+}

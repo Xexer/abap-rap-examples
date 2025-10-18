@@ -1,42 +1,44 @@
 @Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@Endusertext: {
-  Label: '###GENERATED Core Data Service Entity'
+@EndUserText: {
+  label: '###GENERATED Core Data Service Entity'
 }
-@Objectmodel: {
-  Sapobjectnodetype.Name: 'ZBS_Company', 
-  Semantickey: [ 'Registrationnumber' ]
+@ObjectModel: {
+  sapObjectNodeType.name: 'ZBS_Company', 
+  semanticKey: [ 'Registrationnumber' ]
 }
 @AccessControl.authorizationCheck: #MANDATORY
 define root view entity ZBS_C_REXDEEPCOMPANY
-  provider contract TRANSACTIONAL_QUERY
+  provider contract transactional_query
   as projection on ZBS_R_REXDEEPCOMPANY
   association [1..1] to ZBS_R_REXDEEPCOMPANY as _BaseEntity on $projection.UUID = _BaseEntity.UUID
 {
   key UUID,
   RegistrationNumber,
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBS_I_REXDeepCompanyVH', element : 'company_code_name' } }]
   CompanyName,
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBS_I_REXDEEPSTATUSVH', element : 'Status' } }]
   Status,
   FoundedAt,
   Location,
   @Semantics: {
-    User.Createdby: true
+    user.createdBy: true
   }
   LocalCreatedBy,
   @Semantics: {
-    Systemdatetime.Createdat: true
+    systemDateTime.createdAt: true
   }
   LocalCreatedAt,
   @Semantics: {
-    User.Localinstancelastchangedby: true
+    user.localInstanceLastChangedBy: true
   }
   LocalLastChangedBy,
   @Semantics: {
-    Systemdatetime.Localinstancelastchangedat: true
+    systemDateTime.localInstanceLastChangedAt: true
   }
   LocalLastChangedAt,
   @Semantics: {
-    Systemdatetime.Lastchangedat: true
+    systemDateTime.lastChangedAt: true
   }
   LastChangedAt,
   _REXDeepEmployee : redirected to composition child ZBS_C_REXDEEPEMPLOYEE,

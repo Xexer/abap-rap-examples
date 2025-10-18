@@ -1,0 +1,65 @@
+managed with additional save implementation in class ZBP_BS_REX_CONFIG unique;
+strict;
+with draft;
+define behavior for ZBS_R_RexConfigS alias RexConfigAll
+draft table ZBS_REX_CON_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _RexConfig { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZBS_I_RexConfig alias RexConfig ##UNMAPPED_FIELD
+persistent table ZBS_REX_CONF
+draft table ZBS_REX_CONF_D
+lock dependent by _RexConfigAll
+authorization dependent by _RexConfigAll
+{
+  field ( mandatory : create )
+   CharKey;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   CharKey;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  factory action ( features : instance ) Copy parameter ZBS_S_RexConfigCopy [1];
+
+  mapping for ZBS_REX_CONF
+  {
+    CharKey = CHAR_KEY;
+    Description = DESCRIPTION;
+    Counter = COUNTER;
+  }
+
+  association _RexConfigAll { with draft; }
+
+}

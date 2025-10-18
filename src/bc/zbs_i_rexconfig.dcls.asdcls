@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZBS_I_RexConfig {
+  grant select on ZBS_I_RexConfig
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZBS_I_REXCONFIG' );
+}
